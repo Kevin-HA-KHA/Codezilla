@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
@@ -14,7 +15,7 @@ export default function Header() {
             <li>Accueil</li>
           </Link>
           <Link to='/about'>
-            <li>A propos</li>
+          { currentUser ? <li>A propos</li> : null}
           </Link>
           <Link to='/profile'>
             {currentUser ? (
