@@ -7,6 +7,7 @@ import {
 } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth';
+import OAuth_Github from '../components/OAuth_Github';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -65,6 +66,7 @@ export default function SignIn() {
           {loading ? 'Chargement...' : 'Connexion'}
         </button>
         <OAuth />
+        <OAuth_Github />
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Pas encore de compte?</p>

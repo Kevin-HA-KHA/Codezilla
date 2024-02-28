@@ -23,9 +23,11 @@ const userSchema = new mongoose.Schema(
     },
     level: {
       type: Number,
+      default: 0
     },
     experience: {
-      type: Number
+      type: Number,
+      default: 0
     }
   },
   { timestamps: true }

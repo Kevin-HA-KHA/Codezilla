@@ -3,9 +3,13 @@ import Home from './pages/Home';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Profile from './pages/Profile';
+import ProfileUpdate from './pages/ProfileUpdate';
+import ProfilePage from './pages/ProfilePage';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
+import Aventure from './pages/Aventure';
+import Course from './pages/Course';
 
 export default function App() {
   return (
@@ -18,9 +22,14 @@ export default function App() {
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route element={<PrivateRoute />}>
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile_page' element={<ProfilePage/>} />
+          <Route path='/profile_update' element={<ProfileUpdate/>} />
+          <Route path='/aventure' element={<Aventure/>} />
+          <Route path='/course' element={<Course/>} />
         </Route>
       </Routes>
+      {/* footer */}
+      <Footer />
     </BrowserRouter>
   );
 }

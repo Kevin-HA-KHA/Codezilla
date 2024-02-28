@@ -4,6 +4,7 @@ const initialState = {
   currentUser: null,
   loading: false,
   error: false,
+  experience: 0,
 };
 
 const userSlice = createSlice({
@@ -51,6 +52,21 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = false;
     },
+    errorReset: (state) => {
+      state.error = false;
+    },
+    getUserDataSuccess: (state, action) => {
+      state.currentUser = action.payload;
+    },
+    getUserDataFailure: (state, action) => {
+      state.error = action.payload;
+    },
+    getUserExperienceSuccess: (state, action) => {
+      state.experience = action.payload;
+    },
+    getUserExperienceFailure: (state , action) => {
+      state.error = action.payload;
+    }
   },
 });
 
@@ -65,6 +81,11 @@ export const {
   deleteUserStart,
   deleteUserSuccess,
   signOut,
+  getUserDataSuccess,
+  getUserDataFailure,
+  errorReset,
+  getUserExperienceFailure,
+  getUserExperienceSuccess,
 } = userSlice.actions;
 
 export default userSlice.reducer;

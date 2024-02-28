@@ -16,9 +16,11 @@ import {
   deleteUserSuccess,
   deleteUserFailure,
   signOut,
+  errorReset
 } from '../redux/user/userSlice';
+import { Link } from 'react-router-dom';
 
-export default function Profile() {
+export default function ProfileUpdate() {
   const dispatch = useDispatch();
   const fileRef = useRef(null);
   const [image, setImage] = useState(undefined);
@@ -26,8 +28,18 @@ export default function Profile() {
   const [imageError, setImageError] = useState(false);
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
-
   const { currentUser, loading, error } = useSelector((state) => state.user);
+  // Convertir la date en objet Date
+  const createdAtDate = new Date(currentUser.createdAt);
+  // Options de formatage pour le mois
+  const options = { month: 'long', day: 'numeric', year: 'numeric' };
+  // Formater la date selon les options
+  const formattedDate = createdAtDate.toLocaleDateString('fr-FR', options);
+
+  useEffect(() => { 
+    dispatch(errorReset()); //effacer msg erreur
+  }, [])
+
   useEffect(() => {
     if (image) {
       handleFileUpload(image);
@@ -71,6 +83,7 @@ export default function Profile() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+      console.log(data);
       if (data.success === false) {
         dispatch(updateUserFailure(data));
         return;
@@ -109,7 +122,14 @@ export default function Profile() {
   };
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
+      <div className='profile-update-title'>
+        <h1 className='text-3xl font-semibold text-center my-7'>Modifier le profil</h1>
+        <Link to="/profile_page">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+          </svg>
+        </Link>
+      </div>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           type='file'
@@ -118,12 +138,6 @@ export default function Profile() {
           accept='image/*'
           onChange={(e) => setImage(e.target.files[0])}
         />
-        {/* 
-      firebase storage rules:  
-      allow read;
-      allow write: if
-      request.resource.size < 2 * 1024 * 1024 &&
-      request.resource.contentType.matches('image/.*') */}
         <img
           src={formData.profilePicture || currentUser.profilePicture}
           alt='profile'
@@ -147,7 +161,7 @@ export default function Profile() {
           defaultValue={currentUser.username}
           type='text'
           id='username'
-          placeholder='Username'
+          placeholder="Nom d'utilisateur"
           className='bg-slate-100 rounded-lg p-3'
           onChange={handleChange}
         />
@@ -162,10 +176,13 @@ export default function Profile() {
         <input
           type='password'
           id='password'
-          placeholder='Password'
+          placeholder='Mot de passe'
           className='bg-slate-100 rounded-lg p-3'
           onChange={handleChange}
         />
+        <p className='rounded-lg p-3'>
+            Inscrit le : {formattedDate}
+        </p>
         <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
           {loading ? 'Chargement...' : 'Mettre à jour'}
         </button>

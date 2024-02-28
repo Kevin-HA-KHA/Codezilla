@@ -11,18 +11,21 @@ export default function Header() {
           <h1 className='font-bold'>Codezilla</h1>
         </Link>
         <ul className='flex gap-4'>
-          <Link to='/'>
-            <li>Accueil</li>
+          <Link to='/aventure'>
+            { currentUser ? <li>Aventure</li> : null}
+          </Link>
+          <Link to='/course'>
+            { currentUser ? <li>Cours</li> : null}
           </Link>
           <Link to='/about'>
           { currentUser ? <li>A propos</li> : null}
           </Link>
-          <Link to='/profile'>
-            {currentUser ? (
+          <Link to='/profile_page'>
+            {currentUser ? 
               <img src={currentUser.profilePicture} alt='profile' className='h-7 w-7 rounded-full object-cover' />
-            ) : (
+             : 
               <li>Se connecter</li>
-            )}
+            }
           </Link>
         </ul>
       </div>
