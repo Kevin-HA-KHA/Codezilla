@@ -1,3 +1,203 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Glory:ital,wght@0,100..800;1,100..800&display=swap');
+
+body{
+    margin: 0;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+    height: 7vh;
+    padding-left: 5rem;
+    font-family: "Lilita One", sans-serif; 
+    position: relative;
+    z-index: 2;
+    background: rgb(56,56,56);
+    background: linear-gradient(180deg, rgba(90, 90, 90, 0.75) 0%, rgba(128,209,213,0) 95%);
+}
+
+.header .nav a{ 
+    text-decoration: none;
+    color: #FFD96E;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    transition: 300ms all ease-in;
+}
+
+.header .nav a:hover{
+    color: #0D3F72
+}
+
+.header .nav .logo{
+    width: 25vh;
+}
+
+.accueil{
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    font-family: 'Changa One', sans-serif;
+    color:#0D3F72;
+    font-size: 4rem;
+    font-style: italic;
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 1);
+    text-transform: uppercase;
+}
+
+.accueil span{
+    position: absolute;
+    color: white;
+    top: -5.2rem;
+    left: 12rem;
+}
+
+.couche1, .couche2, .couche3{
+    width: 18.75rem;
+    height: 5rem;
+    z-index: 2;
+    left: 40%;
+    top: 60%;
+}
+
+.couche1{
+    background-color: #F29A34;
+    position: absolute;
+    transform: translate(-0.5rem, -1ex) ;
+}
+.couche2{
+    background-color: #80D1D5;
+    position: absolute;
+    transform: translate(0.5rem, 1ex) ;
+
+
+}
+.couche3{
+    background-color: #FFD96E;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Changa One', sans-serif;
+    color:#0D3F72;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 300ms all ease-in;
+}
+
+.couche3:hover{
+    background-color: white;
+}
+
+.transition{
+    width: 95%;
+    height: 1rem;
+    position: absolute;
+    top: -1rem;
+}
+
+.transition-orange{
+    left: 0;
+    border-bottom-right-radius: 100rem;
+    background-color: #F29A34;
+}
+
+.transition-bleu{
+    right: 0px;
+    border-bottom-left-radius: 100Rem;
+    background-color: #80D1D5;
+}
+
+
+.nav-droite {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    list-style: none;
+}
+
+.nav-droite img{
+    width: 6rem;
+    border-radius: 6rem;
+}
+
+.banner img {
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    top:0;
+    z-index: 1;
+}
+
+.banner{
+    width: 100%;
+}
+
+.suite{
+    margin-top: 57vh;
+}
+
+.apprentissage{
+    position: relative;
+    z-index: 2;
+    padding: 2rem 5%;
+    padding-bottom: 4rem;
+    font-family: "Glory", sans-serif;
+    font-size: 1.25rem;
+}
+
+.block-noir {
+    background-color: #242424;
+    color:white;
+}
+
+.block-orange{
+    background-color: #FFD96E;
+}
+
+
+
+.block-noir h2{
+    background-color: #F29A34;
+    width: fit-content;
+    padding: 10px;
+}
+
+.block-orange h2{
+    background-color: #F29A34;
+    width: fit-content;
+    padding: 10px;
+    text-align: right;
+    margin-left: 80%;
+}
+
+
+.footer{
+    padding: 2rem 5%;
+    background-color: #242424;
+    display: flex;
+    justify-content: space-around;
+    font-family: "Glory", sans-serif;
+}
+
+
+.colonne{
+    text-align: center;
+    border-right: 1px white solid;
+    width: 33%;
+}
+.last {
+    border: none;
+}
+
+.footer h2{
+    color:#FFD96E;
+}
+
+.footer p{
+    color: white;
+}

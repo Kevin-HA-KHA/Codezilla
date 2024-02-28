@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Footer from './pages/Footer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Profile from './pages/Profile';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path='/profile' element={<Profile />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,25 +1,29 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import logo from "../public/logo.svg"
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <div className='bg-slate-200'>
-      <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
+    <div className='header'>
+      <div className='nav'>
         <Link to='/'>
-          <h1 className='font-bold'>Codezilla</h1>
+          <img className='logo' src={logo} alt="" />
         </Link>
-        <ul className='flex gap-4'>
+        <ul className='nav-droite'>
           <Link to='/'>
-            <li>Accueil</li>
+            <li>Cours</li>
           </Link>
-          <Link to='/about'>
-          { currentUser ? <li>A propos</li> : null}
+          <Link to='/'>
+            <li>Aventure</li>
+          </Link>
+          <Link to='/'>
+          { currentUser ? <li>Profil</li> : null}
           </Link>
           <Link to='/profile'>
             {currentUser ? (
-              <img src={currentUser.profilePicture} alt='profile' className='h-7 w-7 rounded-full object-cover' />
+              <img src={currentUser.profilePicture} alt='profile' className='' />
             ) : (
               <li>Se connecter</li>
             )}

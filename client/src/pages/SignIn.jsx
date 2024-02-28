@@ -41,38 +41,38 @@ export default function SignIn() {
     }
   };
   return (
-    <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-semibold my-7'>Connexion</h1>
+    <div className=''>
+      <h1 className=''>Connexion</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           type='email'
           placeholder='Email'
           id='email'
-          className='bg-slate-100 p-3 rounded-lg'
+          className=''
           onChange={handleChange}
         />
         <input
           type='password'
           placeholder='Mot de passe'
           id='password'
-          className='bg-slate-100 p-3 rounded-lg'
+          className=''
           onChange={handleChange}
         />
         <button
           disabled={loading}
-          className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+          className=''
         >
           {loading ? 'Chargement...' : 'Connexion'}
         </button>
         <OAuth />
       </form>
-      <div className='flex gap-2 mt-5'>
+      <div className=''>
         <p>Pas encore de compte?</p>
         <Link to='/sign-up'>
-          <span className='text-blue-500'>S'inscrire</span>
+          <span className=''>S'inscrire</span>
         </Link>
       </div>
-      <p className='text-red-700 mt-5'>
+      <p className=''>
         {error ? error.message || 'Une erreur s\'est produite!' : ''}
       </p>
     </div>
