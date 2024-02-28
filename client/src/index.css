@@ -52,7 +52,7 @@ body{
 
 .accueil{
     z-index: 2;
-    position: relative;
+    position: absolute;
     text-align: center;
     font-family: 'Changa One', sans-serif;
     color:#0D3F72;
@@ -60,13 +60,14 @@ body{
     font-style: italic;
     text-shadow: 0px 1px 8px rgba(0, 0, 0, 1);
     text-transform: uppercase;
+    top: 8rem;
+    left: 10%
 }
 
-.accueil span{
-    position: absolute;
+.accueil :nth-child(2){  
     color: white;
-    top: -5.2rem;
-    left: 12rem;
+    margin-top: -18rem;
+    margin-left: -0.6rem;
 }
 
 .couche1, .couche2, .couche3{
@@ -152,7 +153,7 @@ body{
 }
 
 .suite{
-    margin-top: 57vh;
+    margin-top: 87vh;
 }
 
 .apprentissage{

@@ -10,9 +10,7 @@ export default function Home() {
           <img src={banner} alt="" /> 
         <div className='accueil'>
             <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
-          <span>
             <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
-          </span>
         </div>
         <div className='btn-start'>
             <div className='couche1'></div>
