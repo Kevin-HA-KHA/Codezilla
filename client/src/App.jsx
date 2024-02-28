@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Footer from './pages/Footer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ProfileUpdate from './pages/ProfileUpdate';
 import ProfilePage from './pages/ProfilePage';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import Aventure from './pages/Aventure';
 import Course from './pages/Course';
@@ -28,7 +28,6 @@ export default function App() {
           <Route path='/course' element={<Course/>} />
         </Route>
       </Routes>
-      {/* footer */}
       <Footer />
     </BrowserRouter>
   );

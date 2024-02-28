@@ -141,18 +141,18 @@ export default function ProfileUpdate() {
         <img
           src={formData.profilePicture || currentUser.profilePicture}
           alt='profile'
-          className='h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2'
+          className=''
           onClick={() => fileRef.current.click()}
         />
-        <p className='text-sm self-center'>
+        <p className=''>
           {imageError ? (
-            <span className='text-red-700'>
+            <span className=''>
               Erreur lors du chargement de l'image (Le fichier doit peser moins de 2 MB)
             </span>
           ) : imagePercent > 0 && imagePercent < 100 ? (
-            <span className='text-slate-700'>{`Uploading: ${imagePercent} %`}</span>
+            <span className=''>{`Uploading: ${imagePercent} %`}</span>
           ) : imagePercent === 100 ? (
-            <span className='text-green-700'>L'image a été chargée ! Veuillez sauvegarder.</span>
+            <span className=''>L'image a été chargée ! Veuillez sauvegarder.</span>
           ) : (
             ''
           )}
@@ -162,7 +162,7 @@ export default function ProfileUpdate() {
           type='text'
           id='username'
           placeholder="Nom d'utilisateur"
-          className='bg-slate-100 rounded-lg p-3'
+          className=''
           onChange={handleChange}
         />
         <input
@@ -170,36 +170,36 @@ export default function ProfileUpdate() {
           type='email'
           id='email'
           placeholder='Email'
-          className='bg-slate-100 rounded-lg p-3'
+          className=''
           onChange={handleChange}
         />
         <input
           type='password'
           id='password'
           placeholder='Mot de passe'
-          className='bg-slate-100 rounded-lg p-3'
+          className=''
           onChange={handleChange}
         />
         <p className='rounded-lg p-3'>
             Inscrit le : {formattedDate}
         </p>
-        <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
+        <button className=''>
           {loading ? 'Chargement...' : 'Mettre à jour'}
         </button>
       </form>
-      <div className='flex justify-between mt-5'>
+      <div className=''>
         <span
           onClick={handleDeleteAccount}
-          className='text-red-700 cursor-pointer'
+          className=''
         >
           Supprimer le compte
         </span>
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
+        <span onClick={handleSignOut} className=''>
           Se déconnecter
         </span>
       </div>
-      <p className='text-red-700 mt-5'>{error && 'Something went wrong!'}</p>
-      <p className='text-green-700 mt-5'>
+      <p className=''>{error && 'Something went wrong!'}</p>
+      <p className=''>
         {updateSuccess && `Votre profil a bien été mis à jour !`}
       </p>
     </div>
