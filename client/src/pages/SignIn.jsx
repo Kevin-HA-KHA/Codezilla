@@ -8,6 +8,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth';
 import OAuth_Github from '../components/OAuth_Github';
+import banner from "../public/home_banner.jpeg"
+
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -42,41 +44,51 @@ export default function SignIn() {
     }
   };
   return (
-    <div className=''>
-      <h1 className=''>Connexion</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input
-          type='email'
-          placeholder='Email'
-          id='email'
-          className=''
-          onChange={handleChange}
-        />
-        <input
-          type='password'
-          placeholder='Mot de passe'
-          id='password'
-          className=''
-          onChange={handleChange}
-        />
-        <button
-          disabled={loading}
-          className=''
-        >
-          {loading ? 'Chargement...' : 'Connexion'}
-        </button>
-        <OAuth />
-        <OAuth_Github />
-      </form>
-      <div className=''>
-        <p>Pas encore de compte?</p>
-        <Link to='/sign-up'>
-          <span className=''>S'inscrire</span>
-        </Link>
+    <div className='container'>
+            <div className='banner singin-banner container flex-center'>
+              <img src={banner} alt="" /> 
+      <div className='singin singin-block'>
+        {/* <h1 className=''>Connexion</h1> */}
+        <form onSubmit={handleSubmit} className='singin'>
+          <label htmlFor="email">Adresse mail</label>
+          <input
+            type='email'
+            placeholder='codeurexpert@html.fr'
+            id='email'
+            className=''
+            onChange={handleChange}
+          />
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            type='password'
+            placeholder='htmlcss4ever'
+            id='password'
+            className=''
+            onChange={handleChange}
+          />
+          <button
+            disabled={loading}
+            className=''
+          >
+            {loading ? 'Chargement...' : 'Connexion'}
+          </button>
+            <div className='OAuth'>
+              <OAuth />
+              <OAuth_Github />
+            </div>
+        </form>
+        <div className='singup-link'>
+          <p>Pas encore de compte?</p>
+          <Link to='/sign-up'>
+            <span className=''>S'inscrire</span>
+          </Link>
+        </div>
+        <p className=''>
+          {error ? error.message || 'Une erreur s\'est produite!' : ''}
+        </p>
+
       </div>
-      <p className=''>
-        {error ? error.message || 'Une erreur s\'est produite!' : ''}
-      </p>
+      </div>
     </div>
   );
 }
