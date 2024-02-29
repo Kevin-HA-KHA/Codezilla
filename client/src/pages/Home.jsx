@@ -5,23 +5,23 @@ export default function Home() {
   return (
 
 
-    <div className='main'>
-      <div className='banner'>
+    <div className='main container'>
+      <div className='banner container'>
           <img src={banner} alt="" /> 
-        <div className='accueil'>
+        <div className='accueil container'>
             <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
             <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
         </div>
-        <div className='btn-start'>
-            <div className='couche1'></div>
-            <div className='couche2'></div>
-            <div className='couche3'><p>Commencer maintenant</p></div>
+        <div className='btn-start container'>
+            <div className='couche1 container'></div>
+            <div className='couche2 container'></div>
+            <div className='couche3 container'><p>Commencer maintenant</p></div>
         </div>
       </div>
 
 
-      <div className='apprentissage block-noir suite'>
-      <div className='transition transition-orange'></div>
+      <div className='apprentissage block-noir container'>
+      <div className='transition transition-orange container'></div>
         <h2>Processus d'apprentisage</h2>
         <p>
           This is a full-stack web application built with the MERN (MongoDB,
@@ -38,8 +38,8 @@ export default function Home() {
           protected routes only for authenticated users.
         </p>
       </div>
-      <div className='apprentissage block-orange'>
-        <div className='transition transition-bleu'></div>
+      <div className='apprentissage block-orange container'>
+        <div className='transition transition-bleu container'></div>
         <h2>Processus d'apprentisage</h2>
         <p>
           The front-end of the application is built with React and uses React
@@ -60,8 +60,8 @@ export default function Home() {
           using JSON Web Tokens (JWT).
         </p>
       </div>
-      <div className='apprentissage block-noir'>
-      <div className='transition transition-orange'></div>
+      <div className='apprentissage block-noir container'>
+      <div className='transition transition-orange container'></div>
         <h2>Processus d'apprentisage</h2>
       <p>
         This application is intended as a starting point for building full-stack

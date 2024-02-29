@@ -6,6 +6,11 @@ body{
     margin: 0;
 }
 
+.container{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .profile-update-title {
     display: flex;
     flex-direction: row-reverse;
@@ -157,10 +162,13 @@ body{
 .apprentissage{
     position: relative;
     z-index: 2;
-    padding: 2rem 5%;
+    padding-top: 2rem;
     padding-bottom: 4rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
     font-family: "Glory", sans-serif;
     font-size: 1.25rem;
+    text-align: justify;
 }
 
 .block-noir {
@@ -182,9 +190,10 @@ body{
 
 .block-orange h2{
     background-color: #F29A34;
+    width: fit-content;
     padding: 10px;
     text-align: right;
-    margin-left: 80%;
+    margin-left: 82%;
 }
 
 
@@ -212,4 +221,27 @@ body{
 
 .footer p{
     color: white;
+}
+
+@media (max-width: 1536px) {
+    .banner{
+        height: 40rem;
+    }
+
+    .accueil{
+        font-size: 3rem;
+        top: 10%;
+    }
+
+    .accueil :nth-child(2){
+        margin-top: -13.5rem;
+    }
+
+    .apprentissage{
+        font-size: 1rem;;
+    }
+
+    .couche3{
+        font-size: 1.25rem;
+    }
 }
