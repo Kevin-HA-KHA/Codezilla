@@ -6,7 +6,7 @@ export default function Home() {
 
 
     <div className='main'>
-        <div className='banner'>
+      <div className='banner'>
           <img src={banner} alt="" /> 
         <div className='accueil'>
             <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
