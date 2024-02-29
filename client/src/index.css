@@ -155,7 +155,7 @@ body{
 
 .banner{
     width: 100%;
-    height: 45rem;
+    height: 40rem;
 }
 
 
@@ -224,9 +224,7 @@ body{
 }
 
 @media (max-width: 1536px) {
-    .banner{
-        height: 40rem;
-    }
+
 
     .accueil{
         font-size: 3rem;
