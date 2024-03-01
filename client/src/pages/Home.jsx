@@ -11,8 +11,8 @@ export default function Home() {
       <div className='banner container'>
           <img src={banner} alt="" /> 
         <div className='accueil container'>
-            <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
-            <h2>Apprendre le code en t'amusant <br />HTML - CSS- JAVASCRIPT</h2>
+            <h2>Apprendre le code en s'amusant <br />HTML - CSS- JAVASCRIPT</h2>
+            <h2>Apprendre le code en s'amusant <br />HTML - CSS- JAVASCRIPT</h2>
         </div>
         <div className='btn-start container'>
             <div className='couche1 container'></div>
