@@ -21,11 +21,11 @@ export default function App() {
         <Route path='/about' element={<About />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/course' element={<Course/>} />
         <Route element={<PrivateRoute />}>
           <Route path='/profile_page' element={<ProfilePage/>} />
           <Route path='/profile_update' element={<ProfileUpdate/>} />
           <Route path='/aventure' element={<Aventure/>} />
-          <Route path='/course' element={<Course/>} />
         </Route>
       </Routes>
       <Footer />

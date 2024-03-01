@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import {
@@ -8,7 +7,7 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage';
 import { app } from '../firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserDataSuccess,
   getUserDataFailure,
@@ -19,7 +18,7 @@ import ProgressBar from '../components/ProgressBar';
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
-    const { currentUser, error } = useSelector((state) => state.user);
+    const { currentUser, error, progressHTML } = useSelector((state) => state.user);
 
     useEffect(() => {
       dispatch(errorReset()); //effacer msg erreur
@@ -64,7 +63,7 @@ export default function ProfilePage() {
             <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
           </div>
           <div>
-            <h2 className='text-2xl font-semibold text-center my-7'>Niveau : {currentUser.level}</h2>
+            <h2 className='text-2xl font-semibold text-center my-7'>Progression HTML :</h2>
             <ProgressBar experiencePoints={currentUser.experience} />
           </div>
         </div>
