@@ -1,5 +1,23 @@
 import mongoose from 'mongoose';
 
+const lineSchema = new mongoose.Schema({
+  content: {
+    type: String,
+  }
+})
+
+const sectionSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  }, 
+  lines: [lineSchema]
+});
+
 const courseSchema = new mongoose.Schema(
   {
     title: {
@@ -7,11 +25,10 @@ const courseSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    content: {
+    description: {
       type: String,
-      required: true,
-      unique: true,
-    }
+    },
+    sections: [sectionSchema]
   },
   { timestamps: true }
 );

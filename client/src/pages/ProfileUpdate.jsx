@@ -188,15 +188,8 @@ export default function ProfileUpdate() {
         </button>
       </form>
       <div className=''>
-        <span
-          onClick={handleDeleteAccount}
-          className=''
-        >
-          Supprimer le compte
-        </span>
-        <span onClick={handleSignOut} className=''>
-          Se déconnecter
-        </span>
+        <Link><button onClick={handleDeleteAccount} className=''>Supprimer le compte</button></Link>
+        <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
       </div>
       <p className=''>{error && 'Something went wrong!'}</p>
       <p className=''>

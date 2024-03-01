@@ -8,7 +8,7 @@ const ProgressBar = ({ experiencePoints }) => {
   const dispatch = useDispatch();
     const { currentUser, error } = useSelector((state) => state.user);
   useEffect(() => {
-
+    
   }, [currentUser])
 
   return (
