@@ -37,6 +37,9 @@ export const signin = async (req, res, next) => {
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
+    // if(user && (user.method === "github" || user.method === "vanilla")) {
+    //   return next(errorHandler(400, 'Vous êtes déjà inscrit!'))
+    // }
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password: hashedPassword, ...rest } = user._doc;
@@ -61,6 +64,7 @@ export const google = async (req, res, next) => {
         email: req.body.email,
         password: hashedPassword,
         profilePicture: req.body.photo,
+        // method: req.body.method,
       });
       await newUser.save();
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
@@ -82,6 +86,9 @@ export const google = async (req, res, next) => {
 export const github = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
+    // if (user && (user.method === "google" || user.method === "vanilla")) {
+    //   return next(errorHandler(400, 'Vous êtes déjà inscrit!'))
+    // }    
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password: hashedPassword, ...rest } = user._doc;
@@ -104,6 +111,7 @@ export const github = async (req, res, next) => {
         email: req.body.email,
         password: hashedPassword,
         profilePicture: req.body.photo,
+        // method: req.body.method,
       });
       await newUser.save();
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);

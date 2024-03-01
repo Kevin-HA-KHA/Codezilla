@@ -10,16 +10,10 @@ import {
 import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import {
-  updateUserStart,
-  updateUserSuccess,
-  updateUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
-  deleteUserFailure,
-  signOut,
   getUserDataSuccess,
   getUserDataFailure,
   errorReset,
+  signOut,
 } from '../redux/user/userSlice';
 import ProgressBar from '../components/ProgressBar';
 
@@ -45,6 +39,14 @@ export default function ProfilePage() {
       fetchData();
     }, []);
     
+    const handleSignOut = async () => {
+      try {
+        await fetch('/api/auth/signout');
+        dispatch(signOut())
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     return (
         <div className='p-3 max-w-lg mx-auto'>
@@ -59,6 +61,8 @@ export default function ProfilePage() {
             <p className='text-red-700 mt-5'>{error && 'Une erreur est survenue!'}</p>
             <p className='text-green-700 mt-5'></p>
             <Link to={'/profile_update'}><button>Modifier le profil</button></Link>
+            <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
+
           </div>
           <div>
             <h2 className='text-2xl font-semibold text-center my-7'>Niveau : {currentUser.level}</h2>

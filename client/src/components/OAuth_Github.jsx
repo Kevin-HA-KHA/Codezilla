@@ -21,6 +21,7 @@ export default function OAuth_Github() {
           name: result._tokenResponse.screenName,
           email: result.user.email,
           photo: result.user.photoURL,
+          // method: "github",
         }),
       });
 

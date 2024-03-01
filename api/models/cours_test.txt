@@ -1,0 +1,31 @@
+{
+  "title": "LES BALISES",
+  "description": "Salut à tous les futurs codeurs ! Prêt à plonger dans l’univers passionnant du codage web ? Nous sommes ravis de vous accueillir dans notre premier cours, où nous allons explorer le monde des balises HTML. Maintenant, vous vous demandez peut-être, qu’est-ce qu’une balise HTML ? Imaginez-les comme des instructions que vous donnez à votre navigateur web pour lui dire comment afficher votre site. Elles sont comme des blocs de construction qui donnent une structure à votre page web. Voici quelques-unes des balises de base que vous devez connaître : ",
+  "sections": [
+    {
+      "title": "La balise <html> :",
+      "content": "C’est la balise de départ et de fin de votre page HTML. Tout ce qui est entre <html> et </html> est le contenu de votre page web.",
+      "lines": []
+    },
+    {
+      "title": "La balise <head> : ",
+      "content": "Cette balise contient des informations sur votre page, comme le titre de la page, les liens vers des feuilles de style (comme CSS) et d'autres métadonnées. \n Exemple : ",
+      "lines": []
+    },
+    {
+      "title": "La balise <body> : ",
+      "content": "Ici, vous mettez tout ce que vous voulez afficher sur votre page web. Texte, images, vidéos, tout ! \n Exemple : ",
+      "lines": []
+    }, 
+    {
+      "title": "Les balises <h1>, <h2>, <h3>, etc : ",
+      "content": "Ce sont vos titres. Utilisez-les pour donner de la structure à votre contenu. Plus le chiffre est bas, plus le titre est important. Vous pouvez aller jusqu'à 6 niveaux de titre (<h6>). \n Exemple : ",
+      "lines": []
+    },
+    {
+      "title": "La balise <p> : ",
+      "content": "Besoin de créer un paragraphe de texte ? Voici votre balise ! Utilisez-la pour rendre votre contenu lisible et organisé. \n Exemple : ",
+      "lines": []
+    },
+  ]
+}
