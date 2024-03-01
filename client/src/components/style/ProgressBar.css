@@ -1,22 +1,22 @@
 .progress-bar-container {
-  position: relative  ;
-    width: 100%;
-    height: 20px;
+    position: relative  ;
+    width: 80%;
+    margin: 0 auto;
+    height: 3rem;
     background-color: #ccc;
-    border-radius: 10px;
     overflow: hidden;
   }
   
   .progress-bar-fill {
     height: 100%;
-    background-color: #4caf50; /* Couleur de remplissage */
+    background-color: #F73C01; /* Couleur de remplissage */
     transition: width 0.5s ease; /* Animation de remplissage */
   }
 
   .progress-bar-text {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 25%;
     transform: translate(-50%, -50%);
     font-weight: bold;
 }

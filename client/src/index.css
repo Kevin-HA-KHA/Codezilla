@@ -13,19 +13,7 @@ body{
     margin-right: auto;
 }
 
-.profile-update-title {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
 
-.progress-bar-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* La barre de navigation */
 
@@ -388,6 +376,71 @@ body{
 .dashboard{
     width: 60%;
 }
+
+.dashboard h1{ 
+    color: #FFD96E;
+    font-family: "Lilita One", sans-serif;  
+    font-size: 3rem;
+    text-align: center;  
+}
+
+.dashboard h2{
+    font-family: "Lilita One", sans-serif;  
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;   
+}
+
+
+.profile-update-title {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.progress-bar-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.html_progress{
+    display: flex;
+    align-items: center;
+}
+
+.html_progress img{
+    width: 5%;
+}
+
+.level h2{
+    margin-bottom: 0;
+}
+
+.current_level{
+    font-family: "Lilita One", sans-serif;  
+    color: #FFD96E;
+    font-size: 2.5rem;
+}
+
+.level section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.level section div{
+    width: 45%;
+    height: 0.5rem;
+    background-color: #FFD96E;
+}
+
+.level section div:nth-child(1){
+    background-color: #80D1D5;
+}
+
 
 
 /* Le footer */

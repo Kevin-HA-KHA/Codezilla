@@ -16,6 +16,7 @@ import {
   signOut,
 } from '../redux/user/userSlice';
 import ProgressBar from '../components/ProgressBar';
+import logo_HTML from "../public/logo_html.png"
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
@@ -64,9 +65,20 @@ export default function ProfilePage() {
             <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
           </div>
           <div className='dashboard'>
-          <h1 className=''>Tableau de bord</h1>
-            <h2 className=''>Progression HTML :</h2>
+          <h1>Tableau de bord</h1>
+            <h2>HTML</h2>
+            <section className='html_progress'>
+            <img src={logo_HTML} alt="" />
             <ProgressBar experiencePoints={currentUser.experience} />
+            </section>
+            <div className='level'>
+            <h2>Niveau du compte</h2>
+            <section>
+              <div></div>
+            <p className='current_level'>{currentUser.level}</p>
+              <div></div>
+            </section>
+            </div>
           </div>
         </div>
         
