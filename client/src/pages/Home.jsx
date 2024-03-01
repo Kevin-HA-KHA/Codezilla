@@ -1,5 +1,7 @@
 import React from 'react';
 import banner from "../public/home_banner.jpeg"
+import { Link, useNavigate } from 'react-router-dom';
+
 
 export default function Home() {
   return (
@@ -15,7 +17,14 @@ export default function Home() {
         <div className='btn-start container'>
             <div className='couche1 container'></div>
             <div className='couche2 container'></div>
-            <div className='couche3 container'><p>Commencer maintenant</p></div>
+              <Link to="/course">
+                <div className='couche3 container'>
+                <p>
+                Commencer maintenant
+
+                </p>
+                </div>
+              </Link>
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import {
 
 const CourseComponent = ({ courseData }) => {
   return (
-    <div>
+    <div className='course-body'>
       <h1 className='course-title'>{courseData.title}</h1>
       <p className='course-description'>{courseData.description}</p>
       {courseData.sections.map(section => (
@@ -25,9 +25,9 @@ const ButtonComponent = ({ coursesData }) => {
     return (
       <>
         {coursesData.map(courseData => (
-          <button className="course-btn" key={courseData._id} onClick={() => dispatch(setCurrentCourse(courseData._id))}>
+          <li className="course-btn" key={courseData._id} onClick={() => dispatch(setCurrentCourse(courseData._id))}>
             {courseData.title}
-          </button>
+          </li>
         ))}
       </>
     );

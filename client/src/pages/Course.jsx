@@ -54,18 +54,22 @@ function Course() {
   }, [currentCourseId]);
 
   return (
-    <>
+    <div className='course'>
+      <div className='course-selector'>
       <h1>Cours HMTL</h1>
       {/* <button onClick={() => dispatch(setCurrentCourse("65e092420cc67c24901ac345"))}>Les balises</button>
       <button onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>test</button> */}
-      <ButtonComponent coursesData={allCourseData} />
-      <div>
+      <ul>
+        <ButtonComponent coursesData={allCourseData} />
+      </ul>
+
+      </div>
+      <div className='course-body'>
         {
           courseData._id ? <CourseComponent courseData={courseData} /> : ''
         }
-
       </div>
-    </>
+    </div>
   )
 }
 

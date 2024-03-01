@@ -66,13 +66,13 @@ export default function SignIn() {
             className=''
             onChange={handleChange}
           />
+            <div className='OAuth'>
           <button
             disabled={loading}
             className=''
           >
             {loading ? 'Chargement...' : 'Connexion'}
           </button>
-            <div className='OAuth'>
               <OAuth />
               <OAuth_Github />
             </div>
