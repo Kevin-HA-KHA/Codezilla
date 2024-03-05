@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
-// import { ProfilUpdate } from '../pages/ProfileUpdate.jsx'
 import {
   getDownloadURL,
   getStorage,
@@ -26,9 +25,8 @@ import logo_HTML from "../public/logo_html.png"
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
-    // const { currentUser, error, progressHTML } = useSelector((state) => state.user);
-
-    // new
+    const { progressHTML } = useSelector((state) => state.user);
+    
     const fileRef = useRef(null);
     const [image, setImage] = useState(undefined);
     const [imagePercent, setImagePercent] = useState(0);
@@ -170,6 +168,7 @@ export default function ProfilePage() {
               />
               <img
                 src={formData.profilePicture || currentUser.profilePicture}
+                referrerPolicy='no-referrer'
                 alt='profile'
                 className=''
                 onClick={() => fileRef.current.click()}
@@ -180,7 +179,7 @@ export default function ProfilePage() {
                     Erreur lors du chargement de l'image (Le fichier doit peser moins de 2 MB)
                   </span>
                 ) : imagePercent > 0 && imagePercent < 100 ? (
-                  <span className=''>{`Uploading: ${imagePercent} %`}</span>
+                  <span className=''>{`Téléchargement: ${imagePercent} %`}</span>
                 ) : imagePercent === 100 ? (
                   <span className=''>L'image a été chargée ! Veuillez sauvegarder.</span>
                 ) : (
@@ -233,7 +232,7 @@ export default function ProfilePage() {
             <h2>HTML</h2>
             <section className='html_progress'>
             <img src={logo_HTML} alt="" />
-            <ProgressBar experiencePoints={currentUser.experience} />
+            <ProgressBar experiencePoints={progressHTML} />
             </section>
             <div className='level'>
             <h2>Niveau du compte</h2>

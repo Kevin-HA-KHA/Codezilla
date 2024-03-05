@@ -71,6 +71,7 @@ const userSlice = createSlice({
     setProgressHTML: (state, action) => {
       state.progressHTML = action.payload;
     }
+
   },
 });
 

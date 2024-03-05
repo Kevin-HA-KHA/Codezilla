@@ -400,6 +400,14 @@ body{
     gap: 2rem;
 }
 
+.section-title-span {
+    color: #FFD96E;
+}
+
+.section-content-span {
+    color: #FFD96E;
+}
+
 /* Page de profil */
 
 .profil{

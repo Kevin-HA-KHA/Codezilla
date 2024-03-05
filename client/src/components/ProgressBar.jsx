@@ -1,20 +1,10 @@
 import React from 'react';
 import './style/ProgressBar.css'; // Fichier CSS pour styliser la barre de progression
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  setProgressHTML,
-} from '../redux/user/userSlice';
 
 
 const ProgressBar = ({ experiencePoints }) => {
-  const percentage = (experiencePoints / 1000) * 100;  // Calculer le pourcentage d'expérience par rapport au maximum (1000 dans ce cas)
-  const dispatch = useDispatch();
-  const { currentUser, error } = useSelector((state) => state.user);
-  useDispatch(setProgressHTML(percentage));
-  useEffect(() => {
-    
-  }, [currentUser])
+  let percentage = (experiencePoints / 1000) * 100;  // Calculer le pourcentage d'expérience par rapport au maximum (1000 dans ce cas)
+  percentage = Math.round(percentage * 10) / 10;
 
   return (
     <div className="progress-bar-container">

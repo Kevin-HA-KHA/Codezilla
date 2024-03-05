@@ -1,10 +1,33 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import logo from "../public/logo.svg"
+import { setProgressHTML } from '../redux/user/userSlice';
 
 export default function Header() {
+  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
+  useEffect(() => { //refresh les userData pour débloquer ou non les cours
+    const fetchData = async () => {
+      if(currentUser) {
+        try {
+          const res = await fetch(`/api/user/${currentUser._id}`);
+          const data = await res.json();
+          const progressHTML = data.experience;
+          dispatch(setProgressHTML(progressHTML));
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        dispatch(setProgressHTML(0));
+      }
+    };
+    fetchData();
+  }, [currentUser]);
+
+
+  
+
   return (
     <div className='header'>
       <div className='nav'>
