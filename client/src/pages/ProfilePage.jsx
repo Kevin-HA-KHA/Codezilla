@@ -150,9 +150,8 @@ export default function ProfilePage() {
               alt='profile'
               className=''
             /> */}
-            
-            <p className='username'>{currentUser.username}</p>  
             <p className=''>{error && 'Une erreur est survenue!'}</p>
+            <p className='username'>{currentUser.username}</p>  
             {/* <ProfilUpdate /> */}
             {/* <Link to={'/profile_update'}><button>Modifier le profil</button></Link> */}
             
@@ -186,6 +185,7 @@ export default function ProfilePage() {
                   ''
                 )}
               </p>
+              <label htmlFor="username">Nom d'utilisateur</label>
               <input
                 defaultValue={currentUser.username}
                 type='text'
@@ -194,6 +194,7 @@ export default function ProfilePage() {
                 className=''
                 onChange={handleChange}
               />
+              <label htmlFor="email">Adresse mail</label>
               <input
                 defaultValue={currentUser.email}
                 type='email'
@@ -202,6 +203,7 @@ export default function ProfilePage() {
                 className=''
                 onChange={handleChange}
               />
+              <label htmlFor="password">Mot de passe</label>
               <input
                 type='password'
                 id='password'
@@ -216,15 +218,14 @@ export default function ProfilePage() {
                 {loading ? 'Chargement...' : 'Mettre à jour'}
               </button>
               <p className=''>{error && 'Something went wrong!'}</p>
-              <p className=''>
-                {updateSuccess && `Votre profil a bien été mis à jour !`}
-              </p>
-          </form>
-
           <div>
             <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
             <Link><button onClick={handleDeleteAccount} className=''>Supprimer le compte</button></Link>
           </div>
+              <p className=''>
+                {updateSuccess && `Votre profil a bien été mis à jour !`}
+              </p>
+          </form>
 
           </div>
           <div className='dashboard'>

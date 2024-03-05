@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
 import OAuth_Github from '../components/OAuth_Github';
+import banner from "../public/home_banner.jpeg"
+import dino from "../public/dino.png"
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -38,9 +40,16 @@ export default function SignUp() {
     }
   };
   return (
-    <div className=''>
-      <h1 className=''>Sign Up</h1>
-      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+          <div className='container'>
+            <div className='banner singin-banner container flex-center'>
+              <img className='banner-site' src={banner}/> 
+    
+      <form onSubmit={handleSubmit} className='singup singup-block'>
+        <div className='intro'>
+          <img src={dino} />
+          <h1 className=''>Bienvenue !</h1>
+        </div>
+        <label htmlFor="username">Nom d'utilisateur</label>
         <input
           type='text'
           placeholder="Nom d'utilisateur"
@@ -48,6 +57,7 @@ export default function SignUp() {
           className=''
           onChange={handleChange}
         />
+        <label htmlFor="email">Adresse mail</label>
         <input
           type='email'
           placeholder='Email'
@@ -55,6 +65,7 @@ export default function SignUp() {
           className=''
           onChange={handleChange}
         />
+        <label htmlFor="password">Mot de passe</label>
         <input
           type='password'
           placeholder='Mot de passe'
@@ -62,22 +73,26 @@ export default function SignUp() {
           className=''
           onChange={handleChange}
         />
-        <button
-          disabled={loading}
-          className=''
-        >
-          {loading ? 'Chargement...' : 'S\'inscrire'}
-        </button>
-        <OAuth />
-        <OAuth_Github />
-      </form>
-      <div className=''>
-        <p>Déjà un compte?</p>
+        <div className='OAuth'>
+          <button
+            disabled={loading}
+            className=''
+          >
+            {loading ? 'Chargement...' : 'S\'inscrire'}
+          </button>
+          <section>
+              <OAuth />
+              <OAuth_Github />
+          </section>
+        </div>
+      <div className='singup-link'>
         <Link to='/sign-in'>
-          <span className=''>Connexion</span>
+          <span className=''>Déjà un compte ?</span>
         </Link>
       </div>
+      </form>
       <p className=''>{error && 'Une erreur s\'est produite!'}</p>
+    </div>
     </div>
   );
 }
