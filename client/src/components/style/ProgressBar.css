@@ -9,7 +9,7 @@
   
   .progress-bar-fill {
     height: 100%;
-    background-color: #F73C01; /* Couleur de remplissage */
+    background-color: #FF5800; /* Couleur de remplissage */
     transition: width 0.5s ease; /* Animation de remplissage */
   }
 
