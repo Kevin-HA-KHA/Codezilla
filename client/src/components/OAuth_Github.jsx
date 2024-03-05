@@ -3,6 +3,7 @@ import { app } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import git_logo from "../public/git_logo.png"
 
 export default function OAuth_Github() {
   const dispatch = useDispatch();
@@ -36,8 +37,9 @@ export default function OAuth_Github() {
     <button
       type='button'
       onClick={handleGithubClick}
-      className='bg-gray-900 text-white rounded-lg p-3 uppercase hover:opacity-95'
+      className='connexion-btn'
     >
+      <img src={git_logo} className='logo-btn' />
       Continuer avec Github
     </button>
   );

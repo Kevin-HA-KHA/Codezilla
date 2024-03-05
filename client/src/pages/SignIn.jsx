@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth';
 import OAuth_Github from '../components/OAuth_Github';
 import banner from "../public/home_banner.jpeg"
+import dino from "../public/dino.png"
 
 
 export default function SignIn() {
@@ -46,10 +47,16 @@ export default function SignIn() {
   return (
     <div className='container'>
             <div className='banner singin-banner container flex-center'>
-              <img src={banner} alt="" /> 
+              <img className='banner-site' src={banner} alt="" /> 
+    
       <div className='singin singin-block'>
         {/* <h1 className=''>Connexion</h1> */}
         <form onSubmit={handleSubmit} className='singin'>
+        <div className="intro">
+          <img src={dino} />
+          <h1>Bienvenue !</h1>
+          <p>Connecte toi à ton compte</p>
+        </div>
           <label htmlFor="email">Adresse mail</label>
           <input
             type='email'
@@ -67,20 +74,22 @@ export default function SignIn() {
             onChange={handleChange}
           />
             <div className='OAuth'>
-          <button
-            disabled={loading}
-            className=''
-          >
-            {loading ? 'Chargement...' : 'Connexion'}
-          </button>
-              <OAuth />
-              <OAuth_Github />
+                <button
+                  disabled={loading}
+                  className=''
+                >
+                  {loading ? 'Chargement...' : 'Connexion'}
+                </button>
+
+              <section>
+                <OAuth />
+                <OAuth_Github />
+              </section>
             </div>
         </form>
         <div className='singup-link'>
-          <p>Pas encore de compte?</p>
           <Link to='/sign-up'>
-            <span className=''>S'inscrire</span>
+            <span className=''>Créer un compte</span>
           </Link>
         </div>
         <p className=''>
