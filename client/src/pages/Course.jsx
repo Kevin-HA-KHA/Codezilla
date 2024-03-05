@@ -9,8 +9,8 @@ import {
 function Course() {
   const dispatch = useDispatch();
   const { currentCourseId, allCourseData } = useSelector((state) => state.course);
-  // const { progressHTML } = useSelector((state) => state.user);
-  const [ progressHTML, setProgressHTML ] = useState('');
+  const { progressHTML } = useSelector((state) => state.user);
+  // const [ progressHTML, setProgressHTML ] = useState(0);
   const [courseData, setCourseData] = useState({
     _id: "",
     title: "",
@@ -63,8 +63,8 @@ function Course() {
       <button onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>test</button> */}
       <ul>
         <li onClick={() => dispatch(setCurrentCourse("65e092420cc67c24901ac345"))}>Les balises</li>
-        {progressHTML === 100 ? <li onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>Chapitre 2</li> : <li className='blocked' onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>Chapitre 2</li>}
-        {progressHTML === 200 ? <li onClick={() => dispatch(setCurrentCourse("65e0f8890cc67c2490285f78"))}>Chapitre 3</li> : <li className='blocked' onClick={() => dispatch(setCurrentCourse("65e0f8890cc67c2490285f78"))}>Chapitre 3</li>}
+        {progressHTML >= 100 ? <li onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>Chapitre 2</li> : <li className='blocked' onClick={() => dispatch(setCurrentCourse("65e09f310cc67c24901c9f4c"))}>Chapitre 2</li>}
+        {progressHTML >= 200 ? <li onClick={() => dispatch(setCurrentCourse("65e0f8890cc67c2490285f78"))}>Chapitre 3</li> : <li className='blocked' onClick={() => dispatch(setCurrentCourse("65e0f8890cc67c2490285f78"))}>Chapitre 3</li>}
       </ul>
       {/* <ButtonComponent coursesData={allCourseData} /> */}
       </div>
@@ -72,10 +72,10 @@ function Course() {
         {
           courseData._id ? <CourseComponent courseData={courseData} /> : ''
         }
-        <div className='CourseNav'>
-          <button onClick={() => {setProgressHTML(100)}}>Niveau suivant</button>
+        {/* <div className='CourseNav'>
+          <button onClick={() => {setProgressHTML(progressHTML + 100)}}>Niveau suivant</button>
           <button onClick={() => {setProgressHTML(0)}}>Réinitialiser</button>
-        </div>
+        </div> */}
       </div>
       
     </div>

@@ -7,12 +7,12 @@ import {
 const CourseComponent = ({ courseData }) => {
   return (
     <div className='course-body'>
-      <h1 className='course-title'>{courseData.title}</h1>
-      <p className='course-description'>{courseData.description}</p>
+      <h1 className='course-title' dangerouslySetInnerHTML={{ __html: courseData.title }}></h1>
+      <p className='course-description' dangerouslySetInnerHTML={{ __html: courseData.description }}></p>
       {courseData.sections.map(section => (
         <div className='courses-sections' key={section._id}>
-          <h2 className='course-section-title'>{section.title}</h2>
-          <p className='course-section-content'>{section.content}</p>
+          <h2 className='course-section-title' dangerouslySetInnerHTML={{ __html: section.title }}></h2>
+          <p className='course-section-content' dangerouslySetInnerHTML={{ __html: section.content }}></p>
           <img src={section.image} alt="" />
         </div>
       ))}
