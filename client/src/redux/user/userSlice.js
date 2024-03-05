@@ -6,6 +6,7 @@ const initialState = {
   error: false,
   experience: 0,
   progressHTML: 0,
+  progressCSS: 0,
 };
 
 const userSlice = createSlice({

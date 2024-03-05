@@ -28,7 +28,11 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0
     },
-    experience: {
+    experience_html: {
+      type: Number,
+      default: 0
+    }, 
+    experience_css: {
       type: Number,
       default: 0
     }

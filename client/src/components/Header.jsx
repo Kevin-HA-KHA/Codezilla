@@ -13,7 +13,8 @@ export default function Header() {
         try {
           const res = await fetch(`/api/user/${currentUser._id}`);
           const data = await res.json();
-          const progressHTML = data.experience;
+          const progressHTML = data.experience_html;
+          const progressCSS = data.experience_css;
           dispatch(setProgressHTML(progressHTML));
         } catch (err) {
           console.log(err);
