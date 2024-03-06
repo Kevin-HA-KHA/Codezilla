@@ -23,6 +23,10 @@ import {
 import ProgressBar from '../components/ProgressBar';
 import ProgressBarCss from '../components/ProgressBarCss';
 import logo_HTML from "../public/logo_html.png"
+// Dépendances Notifications
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+// Fin Dépendances Notifications
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
@@ -40,7 +44,8 @@ export default function ProfilePage() {
     const options = { month: 'long', day: 'numeric', year: 'numeric' };
     // Formater la date selon les options
     const formattedDate = createdAtDate.toLocaleDateString('fr-FR', options);
-  
+    const prevLevelRef = useRef(null);
+
     useEffect(() => {
       if (image) {
         handleFileUpload(image);
@@ -76,15 +81,37 @@ export default function ProfilePage() {
       e.preventDefault();
       try {
         dispatch(updateUserStart());
-        const res = await fetch(`/api/user/update/${currentUser._id}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+        // 1. Encapsulez la requête asynchrone dans une fonction qui renvoie une promesse
+        const updateUserData = async () => {
+          const res = await fetch(`/api/user/update/${currentUser._id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+          return await res.json();
+        };
+    
+        // Créez une promesse de timeout de 5 secondes
+        const timeoutPromise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            dispatch(updateUserFailure(error));
+            reject(new Error('Timeout exceeded (8 seconds)'));
+          }, 8000);
         });
-        const data = await res.json();
+        // 2. Appelez toast.promise en fournissant la fonction et les options de notification
+        toast.promise(
+          Promise.race([updateUserData(), timeoutPromise]),
+          {
+            pending: 'Modification du profil...',
+            success: 'Votre profil a bien été mis à jour !',
+            error: 'La requête a expirée ! Reconnectez vous.',
+          }
+        );
+        const data = await updateUserData(); 
         console.log(data);
+    
         if (data.success === false) {
           dispatch(updateUserFailure(data));
           return;
@@ -112,11 +139,17 @@ export default function ProfilePage() {
         dispatch(deleteUserFailure(error));
       }
     };
-  
-    // new
+
+    const handleSignOut = async () => {
+      try {
+        await fetch('/api/auth/signout');
+        dispatch(signOut())
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
     useEffect(() => {
-      dispatch(errorReset()); //effacer msg erreur
       const fetchData = async () => {
         try {
           const res = await fetch(`/api/user/${currentUser._id}`);
@@ -132,25 +165,26 @@ export default function ProfilePage() {
       };
       fetchData();
     }, []);
-    
-    const handleSignOut = async () => {
-      try {
-        await fetch('/api/auth/signout');
-        dispatch(signOut())
-      } catch (error) {
-        console.log(error);
+
+    // Envoyer notif si le niveau évolue
+    useEffect(() => {
+      if (prevLevelRef.current !== null && prevLevelRef.current !== level) {
+        toast(`Bravo ! Vous avez atteint le niveau ${level} 👌`, {
+        });
       }
-    };
+      prevLevelRef.current = level;
+    }, [level]);
+
 
     return (
         <div className='profil'>
+          <ToastContainer position="top-right" autoClose={8000} limit={4} newestOnTop rtl={false} theme="light" closeOnClick pauseOnFocusLoss draggable />
           <div className='change-profil'>
             {/* <img
               src={currentUser.profilePicture}
               alt='profile'
               className=''
             /> */}
-            <p className=''>{error && 'Une erreur est survenue!'}</p>
             <p className='username'>{currentUser.username}</p>  
             {/* <ProfilUpdate /> */}
             {/* <Link to={'/profile_update'}><button>Modifier le profil</button></Link> */}
@@ -217,14 +251,14 @@ export default function ProfilePage() {
               <button className=''>
                 {loading ? 'Chargement...' : 'Mettre à jour'}
               </button>
-              <p className=''>{error && 'Something went wrong!'}</p>
+              {/* <p className=''>{error && 'Une erreur est survenue!'}</p> */}
           <div>
             <Link><button onClick={handleSignOut} className=''>Se déconnecter</button></Link>
             <Link><button onClick={handleDeleteAccount} className=''>Supprimer le compte</button></Link>
           </div>
-              <p className=''>
+              {/* <p className=''>
                 {updateSuccess && `Votre profil a bien été mis à jour !`}
-              </p>
+              </p> */}
           </form>
 
           </div>

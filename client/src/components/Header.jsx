@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import logo from "../public/logo.svg"
-import { setProgressHTML, setProgressCSS, setLevel } from '../redux/user/userSlice';
+import { setProgressHTML, setProgressCSS, setLevel, errorReset } from '../redux/user/userSlice';
 
 
 export default function Header() {

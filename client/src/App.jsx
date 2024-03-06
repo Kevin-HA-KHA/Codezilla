@@ -14,7 +14,6 @@ import Course from './pages/Course';
 export default function App() {
   return (
     <BrowserRouter>
-      {/* header */}
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
