@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   error: false,
   experience: 0,
+  level: 0,
   progressHTML: 0,
   progressCSS: 0,
 };
@@ -69,8 +70,14 @@ const userSlice = createSlice({
     getUserExperienceFailure: (state , action) => {
       state.error = action.payload;
     },
+    setLevel: (state, action) => {
+      state.level = action.payload
+    },
     setProgressHTML: (state, action) => {
       state.progressHTML = action.payload;
+    },
+    setProgressCSS: (state, action) => {
+      state.progressCSS = action.payload;
     }
 
   },
@@ -92,7 +99,9 @@ export const {
   errorReset,
   getUserExperienceFailure,
   getUserExperienceSuccess,
+  setLevel,
   setProgressHTML,
+  setProgressCSS,
 } = userSlice.actions;
 
 export default userSlice.reducer;

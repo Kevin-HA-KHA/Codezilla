@@ -21,12 +21,12 @@ import {
   errorReset
 } from '../redux/user/userSlice';
 import ProgressBar from '../components/ProgressBar';
+import ProgressBarCss from '../components/ProgressBarCss';
 import logo_HTML from "../public/logo_html.png"
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
-    const { progressHTML } = useSelector((state) => state.user);
-    
+    const { progressHTML, progressCSS, level } = useSelector((state) => state.user);
     const fileRef = useRef(null);
     const [image, setImage] = useState(undefined);
     const [imagePercent, setImagePercent] = useState(0);
@@ -232,14 +232,19 @@ export default function ProfilePage() {
           <h1>Tableau de bord</h1>
             <h2>HTML</h2>
             <section className='html_progress'>
-            <img src={logo_HTML} alt="" />
-            <ProgressBar experiencePoints={progressHTML} />
+              <img src={logo_HTML} alt="" />
+              <ProgressBar experiencePoints={progressHTML} />
+            </section>
+            <h2>CSS</h2>
+            <section className='css_progress'>
+              <img src={logo_HTML} alt="" />
+              <ProgressBarCss experiencePoints={progressCSS} />
             </section>
             <div className='level'>
             <h2>Niveau du compte</h2>
             <section>
               <div></div>
-            <p className='current_level'>{currentUser.level}</p>
+              <p className='current_level'>{level}</p>
               <div></div>
             </section>
             </div>

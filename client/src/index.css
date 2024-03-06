@@ -540,12 +540,12 @@ body{
     align-items: center;
 }
 
-.html_progress{
+.html_progress, .css_progress{
     display: flex;
     align-items: center;
 }
 
-.html_progress img{
+.html_progress img, .css_progress img{
     width: 5%;
 }
 

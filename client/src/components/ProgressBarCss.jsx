@@ -2,7 +2,7 @@ import React from 'react';
 import './style/ProgressBar.css'; // Fichier CSS pour styliser la barre de progression
 
 
-const ProgressBar = ({ experiencePoints }, {}) => {
+const ProgressBarCss = ({ experiencePoints }) => {
   let percentage = (experiencePoints / 1000) * 100;  // Calculer le pourcentage d'expérience par rapport au maximum (1000 dans ce cas)
   percentage = Math.round(percentage * 10) / 10;
 
@@ -10,11 +10,11 @@ const ProgressBar = ({ experiencePoints }, {}) => {
     <div className="progress-bar-container">
       <p className='progress-bar-text'>{percentage}%</p>
       <div
-        className="progress-bar-fill"
+        className="progress-bar-fill-css"
         style={{ width: `${percentage}%` }}
       ></div>
     </div>
   );
 };
 
-export default ProgressBar;
+export default ProgressBarCss;

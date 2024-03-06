@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import logo from "../public/logo.svg"
-import { setProgressHTML } from '../redux/user/userSlice';
+import { setProgressHTML, setProgressCSS, setLevel } from '../redux/user/userSlice';
+
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -15,12 +16,20 @@ export default function Header() {
           const data = await res.json();
           const progressHTML = data.experience_html;
           const progressCSS = data.experience_css;
+          // Module niveau : modifier le niveau en fonction de la quantité d'xp en tt temps
+          const globalExperience = progressHTML + progressCSS;
+          const level = Math.floor(globalExperience / 66);
+          {level >= 30 ? dispatch(setLevel('MAX')) : dispatch(setLevel(level)); }
+          // FIN module niveau
           dispatch(setProgressHTML(progressHTML));
+          dispatch(setProgressCSS(progressCSS));
         } catch (err) {
           console.log(err);
         }
       } else {
+        dispatch(setLevel(0));
         dispatch(setProgressHTML(0));
+        dispatch(setProgressCSS(0));
       }
     };
     fetchData();

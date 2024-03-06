@@ -13,6 +13,12 @@
     transition: width 0.5s ease; /* Animation de remplissage */
   }
 
+  .progress-bar-fill-css {
+    height: 100%;
+    background-color: #0067FA; /* Couleur de remplissage */
+    transition: width 0.5s ease; /* Animation de remplissage */
+  }
+
   .progress-bar-text {
     position: absolute;
     left: 50%;
